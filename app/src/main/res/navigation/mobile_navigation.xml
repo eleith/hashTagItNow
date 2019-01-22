@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/mobile_navigation" app:startDestination="@id/splashFragment">
+
+    <fragment android:id="@+id/splashFragment"
+              android:name="abdulla.com.hashtagit.InputFragment"
+              android:label="SplashFragment">
+
+        <action android:id="@+id/action_splashFragment_to_submissionFragment"
+                app:destination="@id/submissionFragment">
+        </action>
+    </fragment>
+
+    <fragment android:id="@+id/submissionFragment"
+              android:name="abdulla.com.hashtagit.SubmissionFragment"
+              android:label="SubmissionFragment">
+
+        <argument android:name="writtenText"
+                  app:argType="string"
+                  android:defaultValue="May-Ling"/>
+
+    </fragment>
+</navigation>

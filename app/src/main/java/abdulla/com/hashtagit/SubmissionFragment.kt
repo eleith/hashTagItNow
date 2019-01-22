@@ -19,10 +19,6 @@ class SubmissionFragment : Fragment() {
 
     // going from portrait to landscape will cause things to be called twice
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     // so need to make check with orientation
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_submission, container, false)

@@ -2,7 +2,9 @@ package abdulla.com.hashtagit
 
 import android.content.pm.ActivityInfo
 import android.os.Bundle
-import android.view.*
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_input.*
@@ -12,7 +14,12 @@ class InputFragment: Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        findNavController().navigate(InputFragmentDirections.actionInputFragmentToSplashFragment())
+        // if havent seen splash, show it once!
+        (activity as? HashTagItActivity)?.sharedPrefs?.apply {
+            if (!this.contains("seenSplash")) {
+                findNavController().navigate(InputFragmentDirections.actionInputFragmentToSplashFragment())
+            }
+        }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -27,10 +34,6 @@ class InputFragment: Fragment() {
             directions.writtenText = mEditText.text.toString()
             findNavController().navigate(directions)
         }
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        super.onCreateOptionsMenu(menu, inflater)
     }
 
     override fun onResume() {

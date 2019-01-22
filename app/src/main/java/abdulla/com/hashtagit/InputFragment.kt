@@ -18,7 +18,7 @@ class InputFragment: Fragment() {
         super.onStart()
 
         button.setOnClickListener {
-            val directions = SplashFragmentDirections.actionSplashFragmentToSubmissionFragment()
+            val directions = InputFragmentDirections.actionSplashFragmentToSubmissionFragment()
             directions.writtenText = mEditText.text.toString()
             findNavController().navigate(directions)
         }

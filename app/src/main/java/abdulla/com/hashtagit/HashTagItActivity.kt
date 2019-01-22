@@ -2,10 +2,10 @@ package abdulla.com.hashtagit
 
 import android.content.Context
 import android.content.SharedPreferences
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
 
 class HashTagItActivity : AppCompatActivity() {
@@ -26,21 +26,21 @@ class HashTagItActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        when (item?.itemId) {
+        return when (item?.itemId) {
             R.id.icon_inverse -> {
+
+                // actually, probably dont need view model
+                // and can just change theme here on the clicks
                 val vm = ViewModelProviders.of(this)[BackgroundViewModel::class.java]
                 vm.backgroundColor.value?.apply {
                     !this
                 }
-                return true
+                true
             }
             else -> {
-                return super.onOptionsItemSelected(item)
+                super.onOptionsItemSelected(item)
             }
         }
     }
 
-    override fun onResume() {
-        super.onResume()
-    }
 }

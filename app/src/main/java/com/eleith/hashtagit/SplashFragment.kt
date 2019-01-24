@@ -1,4 +1,4 @@
-package abdulla.com.hashtagit
+package com.eleith.hashtagit
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -20,15 +20,9 @@ class SplashFragment: Fragment() {
     override fun onStart() {
         super.onStart()
 
-        // splash fragment is in charge of setting that it has seen it
-        // because there could always be a navigation trouble and user has actually seen this yet
-        (activity as? HashTagItActivity)?.sharedPrefs?.apply {
-            this.edit().putBoolean("seenSplash", true).apply()
-        }
-
         uiScope.launch {
             withContext(Dispatchers.IO) {
-                delay(5000)
+                delay(2000)
                 findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToInputFragment())
             }
         }

@@ -1,4 +1,4 @@
-package abdulla.com.hashtagit
+package com.eleith.hashtagit
 
 import androidx.test.InstrumentationRegistry
 import androidx.test.runner.AndroidJUnit4
@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getTargetContext()
-        assertEquals("abdulla.com.hashtagit", appContext.packageName)
+        assertEquals("com.eleith.hashtagit", appContext.packageName)
     }
 }

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/mobile_navigation" app:startDestination="@id/inputFragment">
+            android:id="@+id/mobile_navigation" app:startDestination="@id/splashFragment">
 
     <fragment android:id="@+id/inputFragment"
-              android:name="abdulla.com.hashtagit.InputFragment"
+              android:name="com.eleith.hashtagit.InputFragment"
               android:label="InputFragment">
 
         <action android:id="@+id/action_inputFragment_to_submissionFragment"
@@ -15,18 +15,21 @@
     </fragment>
 
     <fragment android:id="@+id/submissionFragment"
-              android:name="abdulla.com.hashtagit.SubmissionFragment"
+              android:name="com.eleith.hashtagit.SubmissionFragment"
               android:label="SubmissionFragment">
 
         <argument android:name="writtenText"
                   app:argType="string"
-                  android:defaultValue="May-Ling"/>
+                  android:defaultValue="message"/>
 
     </fragment>
+
     <fragment android:id="@+id/splashFragment"
-              android:name="abdulla.com.hashtagit.SplashFragment"
+              android:name="com.eleith.hashtagit.SplashFragment"
               android:label="SplashFragment">
         <action android:id="@+id/action_splashFragment_to_inputFragment"
-                app:destination="@id/inputFragment"/>
+                app:destination="@id/inputFragment"
+                app:popUpTo="@id/splashFragment"
+        app:popUpToInclusive="true"/>
     </fragment>
 </navigation>

@@ -1,4 +1,4 @@
-package abdulla.com.hashtagit
+package com.eleith.hashtagit
 
 import android.content.Context
 import android.content.SharedPreferences
@@ -42,5 +42,4 @@ class HashTagItActivity : AppCompatActivity() {
             }
         }
     }
-
 }

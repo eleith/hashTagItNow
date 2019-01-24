@@ -1,4 +1,4 @@
-package abdulla.com.hashtagit
+package com.eleith.hashtagit
 
 import android.animation.ObjectAnimator
 import android.animation.ValueAnimator

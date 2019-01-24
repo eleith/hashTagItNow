@@ -9,7 +9,7 @@ apply plugin: 'androidx.navigation.safeargs'
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "abdulla.com.hashtagit"
+        applicationId 'com.eleith.hashtagit'
         minSdkVersion 22
         targetSdkVersion 28
         versionCode 1
@@ -22,26 +22,24 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    productFlavors {
+    }
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.1.0-alpha01'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.0-alpha3'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
-
     implementation 'com.android.support:appcompat-v7:28.0.0'
     implementation 'com.google.android.material:material:1.0.0'
-
     // navigation hasnt moved to x yet
     implementation 'android.arch.navigation:navigation-fragment-ktx:1.0.0-alpha09'
     implementation 'android.arch.navigation:navigation-ui-ktx:1.0.0-alpha09'
-
-    implementation "androidx.lifecycle:lifecycle-extensions:2.0.0"
-
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.0.0'
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.0.0"
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.0.0'
 }

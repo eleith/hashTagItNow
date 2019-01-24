@@ -1,4 +1,4 @@
-package abdulla.com.hashtagit
+package com.eleith.hashtagit
 
 import android.content.pm.ActivityInfo
 import android.os.Bundle
@@ -13,13 +13,6 @@ class InputFragment: Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        // if havent seen splash, show it once!
-        (activity as? HashTagItActivity)?.sharedPrefs?.apply {
-            if (!this.contains("seenSplash")) {
-                findNavController().navigate(InputFragmentDirections.actionInputFragmentToSplashFragment())
-            }
-        }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -28,7 +21,6 @@ class InputFragment: Fragment() {
 
     override fun onStart() {
         super.onStart()
-
         button.setOnClickListener {
             val directions = InputFragmentDirections.actionInputFragmentToSubmissionFragment()
             directions.writtenText = mEditText.text.toString()

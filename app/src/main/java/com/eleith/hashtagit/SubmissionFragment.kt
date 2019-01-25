@@ -6,7 +6,6 @@ import android.app.Activity
 import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.util.DisplayMetrics
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,13 +23,25 @@ class SubmissionFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_submission, container, false)
     }
 
+    override fun onStart() {
+        super.onStart()
+        (activity as? HashTagItActivity)?.showToolbar(false)
+    }
+
+    override fun onStop() {
+        super.onStop()
+        (activity as? HashTagItActivity)?.showToolbar(true)
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
 
         if (activity?.requestedOrientation == ActivityInfo.SCREEN_ORIENTATION_USER_LANDSCAPE) {
             arguments?.apply {
-                textView.text = SubmissionFragmentArgs.fromBundle(this).writtenText
+                val hash = "#"
+                val submission = SubmissionFragmentArgs.fromBundle(this).writtenText
+                textView.text = String.format("%s%s", hash, submission)
                 textView.measure(0, 0)
 
                 putIntoLeanBackMode()

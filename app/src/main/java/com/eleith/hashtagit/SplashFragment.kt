@@ -19,8 +19,7 @@ class SplashFragment: Fragment() {
 
     override fun onStart() {
         super.onStart()
-
-        (activity as? HashTagItActivity)?.showToolbar(true)
+        (activity as? HashTagItActivity)?.showToolbar(false)
 
         uiScope.launch {
             withContext(Dispatchers.IO) {
@@ -30,10 +29,13 @@ class SplashFragment: Fragment() {
         }
     }
 
+    override fun onStop() {
+        super.onStop()
+        (activity as? HashTagItActivity)?.showToolbar(true)
+    }
+
     override fun onPause() {
         super.onPause()
-
-        (activity as? HashTagItActivity)?.showToolbar(false)
 
         // make sure if user leaves screen to early before delay, we have killed the couroutine
         job.cancel()

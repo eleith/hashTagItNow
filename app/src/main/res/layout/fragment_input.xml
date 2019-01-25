@@ -35,7 +35,7 @@
 
 
     <com.google.android.material.button.MaterialButton
-            style="@style/Widget.MaterialComponents.Button"
+            style="@style/AppButton"
             android:text="Hash it"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

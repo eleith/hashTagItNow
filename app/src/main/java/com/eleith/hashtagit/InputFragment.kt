@@ -8,6 +8,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_input.*
+import android.view.inputmethod.EditorInfo
+
+
 
 class InputFragment: Fragment() {
 
@@ -21,6 +24,15 @@ class InputFragment: Fragment() {
 
     override fun onStart() {
         super.onStart()
+        mEditText.setOnEditorActionListener() { _, actionId, _ ->
+            if(actionId == EditorInfo.IME_ACTION_DONE){
+                button.performClick();
+                true
+            } else {
+                false
+            }
+        }
+
         button.setOnClickListener {
             val directions = InputFragmentDirections.actionInputFragmentToSubmissionFragment()
             directions.writtenText = mEditText.text.toString()

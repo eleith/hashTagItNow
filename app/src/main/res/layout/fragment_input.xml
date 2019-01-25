@@ -15,11 +15,12 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="8dp"
             app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/mEditTextLayout"
             android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:helperText="what do you want to say?"
+            app:layout_constraintBottom_toBottomOf="parent"
             android:hint="message">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -34,17 +35,13 @@
 
 
     <com.google.android.material.button.MaterialButton
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            style="@style/Widget.MaterialComponents.Button"
             android:text="Hash it"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginRight="8dp"
             android:id="@+id/button"
-            android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp"/>
-
+            app:layout_constraintTop_toBottomOf="@+id/mEditTextLayout"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

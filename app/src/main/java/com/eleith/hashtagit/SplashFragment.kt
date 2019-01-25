@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.Window
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import kotlinx.coroutines.*
@@ -20,6 +19,9 @@ class SplashFragment: Fragment() {
 
     override fun onStart() {
         super.onStart()
+
+        (activity as? HashTagItActivity)?.showToolbar(true)
+
         uiScope.launch {
             withContext(Dispatchers.IO) {
                 delay(2000)
@@ -30,6 +32,8 @@ class SplashFragment: Fragment() {
 
     override fun onPause() {
         super.onPause()
+
+        (activity as? HashTagItActivity)?.showToolbar(false)
 
         // make sure if user leaves screen to early before delay, we have killed the couroutine
         job.cancel()

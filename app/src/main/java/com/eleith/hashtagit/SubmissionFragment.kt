@@ -31,27 +31,24 @@ class SubmissionFragment : Fragment() {
         if (activity?.requestedOrientation == ActivityInfo.SCREEN_ORIENTATION_USER_LANDSCAPE) {
             arguments?.apply {
                 textView.text = SubmissionFragmentArgs.fromBundle(this).writtenText
-                textView.measure(0,0)
+                textView.measure(0, 0)
 
                 putIntoLeanBackMode()
 
-
                 val difference = getTextViewWidthDifferenceFromParent(textView, activity)
-                Log.e("DIFFERENCE", "" + difference);
-
                 when (Bounds.toBounds(difference)) {
                     Bounds.OUT_OF_BOUNDS -> {
                         val abs = Math.abs(difference)
 
-                        val animator = ObjectAnimator.ofInt(horizontalScroll, "scrollX", abs)
+                        ObjectAnimator.ofInt(horizontalScroll, "scrollX", abs).apply {
+                            // how big the word will easy determines length of animation
+                            // for readability
+                            duration = (10.0 * abs).toLong()
+                            repeatMode = ValueAnimator.REVERSE
+                            repeatCount = ValueAnimator.INFINITE
+                            start()
+                        }
 
-                        // how big the word will easy determines length of animation
-                        // for readability
-                        animator.duration = (10.0 * abs).toLong()
-
-                        animator.repeatMode = ValueAnimator.REVERSE
-                        animator.repeatCount = ValueAnimator.INFINITE
-                        animator.start()
                     }
                     Bounds.IN_BOUNDS -> {
 
@@ -65,7 +62,9 @@ class SubmissionFragment : Fragment() {
 
     // https://developer.android.com/training/system-ui/immersive#leanback
     private fun putIntoLeanBackMode() {
-        activity?.window?.decorView?.systemUiVisibility =  View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_FULLSCREEN
+        activity?.window?.decorView?.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_STABLE or
+                View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or
+                View.SYSTEM_UI_FLAG_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_FULLSCREEN
     }
 
     private fun getTextViewWidthDifferenceFromParent(tv: TextView, act: Activity?): Int {

@@ -14,17 +14,13 @@ import android.view.inputmethod.EditorInfo
 
 class InputFragment: Fragment() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_input, container, false)
     }
 
     override fun onStart() {
         super.onStart()
-        mEditText.setOnEditorActionListener() { _, actionId, _ ->
+        mEditText.setOnEditorActionListener { _, actionId, _ ->
             if(actionId == EditorInfo.IME_ACTION_DONE){
                 button.performClick();
                 true

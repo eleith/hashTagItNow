@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.Window
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import kotlinx.coroutines.*
@@ -19,7 +20,6 @@ class SplashFragment: Fragment() {
 
     override fun onStart() {
         super.onStart()
-
         uiScope.launch {
             withContext(Dispatchers.IO) {
                 delay(2000)

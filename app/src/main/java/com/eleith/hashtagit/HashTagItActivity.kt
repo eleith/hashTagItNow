@@ -1,7 +1,5 @@
 package com.eleith.hashtagit
 
-import android.content.Context
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -9,10 +7,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
 
 class HashTagItActivity : AppCompatActivity() {
-
-    val sharedPrefs : SharedPreferences by lazy {
-        getSharedPreferences("splash", Context.MODE_PRIVATE)
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
